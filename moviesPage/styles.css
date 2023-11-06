@@ -1,3 +1,4 @@
+
 *{
     padding: 0;
     margin: 0;
@@ -8,7 +9,19 @@ a:visited, a{
 }
 body{
     background-color: black;
+    color: white;
 }
+
+h1{
+    font-size: 2.2rem;
+}
+h2{
+    font-size: 1.8rem;
+}
+p{
+    font-size: 1.2rem;
+}
+
 
 /* Navbar */
 div.navbar{
@@ -71,125 +84,81 @@ nav input:focus{
 
 
 
+
+
 div.container{
-    background-color: black;
-    color: white;
+    max-width: 1300px;
+    justify-content: space-between;
+    margin: 0 auto ;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 80px;
 }
 
-/* fleshing card css */
-div.flashing-card{
-    width: 1300px;
-}
-
-div.top-10, div.editor-pic{
-    margin-top: 90px;
-    width: 1300px;
-}
-
-div.flashing-card img{
-    display: block;
-    margin: auto;
-}
-
-
-/* cards CSS */
-div.card-row{
-    margin-top: 40px;
+div.container div.info{
     display: flex;
+    margin-top: 50px;
     justify-content: space-between;
 }
 
- div.card{
-    width: 250px;
-    height: 550px;
-    background-color: #1A1A1A;
-    position: relative;
+div.container div.trailer, div.container div.plot, div.container div.cast, div.container div.screenshot{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
-div.card div.img{
-    height: 350px;
-    width: 250px;
+div.container div.trailer iframe{
+    align-self: center;
 }
 
-div.card div.img img{
-    height: 100%;
+div.container div.screenshot>div{
+    background-color: rgb(42, 42, 42);
+    width: 1000px;
+    height: 570px;
+    align-self: center;
+}
+div.container div.screenshot>div>img{
     width: 100%;
-    object-fit: cover;     
+    height: 100%;
+    object-fit: cover;   
 }
 
-div.card div.bookmark{
-    padding: 10px 0;
-    position: absolute;
-    top: 0;
-    left: 20px;
-    background-color: rgba(0, 0, 0, 0.6);
-}
-div.card div.bookmark:hover{
-    padding: 20px 0 0 0;
 
-}
 
-div.card div.about{
-    box-sizing: border-box;
-    padding: 15px;
+
+
+div.cast-grp{
     display: flex;
-    flex-direction: column;
-    height: 200px;
+    flex-wrap: wrap;
     justify-content: space-between;
+    gap: 20px;
 }
 
-
-div.card div.stars{
+.cast .cast-person{
+    width: 400px;
     display: flex;
     align-items: center;
-    gap: 10px;
-}
-div.card div.stars p{
-    margin-right: 20px;
-    color: rgb(188, 188, 188);
-    font-size: 1.1rem;
+    gap: 20px;
 }
 
-
-div.card div.about button{
-    font-size: 1.2rem;
-    padding: 8px;
-    color: #5799EF;
-    background-color: #26282c;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+div.cast div.img{
+    width: 100px;
+    height: 100px;
 }
 
-div.card div.about button:hover{
-    background-color: #2F343B;
+div.cast div.img img{
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-div.card a div.trailer{
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap:5px;    
-} 
-div.card a div.trailer:hover{
-    background-color: #26282c;
-}
-div.card a div.trailer p{
-    color: white;
-    font-size: 1rem;
-}
 
 
 
 /* footer */
-
-
 footer{
     max-width: 1300px;
-    margin: 90px auto 20px auto;
+    margin: 50px auto 20px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
