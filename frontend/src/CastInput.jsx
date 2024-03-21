@@ -1,17 +1,22 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-function CastInput(){
+function CastInput({movieState,  setMovieState}){
 
 
     const [i, setI] = useState(0);
     const [inputs, setInputs] = useState([]);
     const [castInfo, setCastInfo] = useState([]);
+    
+    let updateState = movieState;
+    updateState.cast = castInfo;
+    setMovieState(updateState);
+
+    
  
     function addInput(e){
         e.preventDefault()  
 
         setCastInfo(castInfo=>{
-            // console.log(castInfo, castInfo.length)
             if(i>=castInfo.length){
                 castInfo.push({name:"", image:null});
             }
@@ -29,7 +34,6 @@ function CastInput(){
 
     return(     
         <>
-        {console.log(i)}
         {inputs.map(comp=>{
             return comp
         })
@@ -59,7 +63,7 @@ function Input({i, castInfo}){
         setSrc(URL.createObjectURL(e.target.files[0]));
     }   
 
-    console.table(castInfo);
+    // console.table(castInfo);
     castInfo[i].name = cast.name;
     castInfo[i].image = cast.file;
 
