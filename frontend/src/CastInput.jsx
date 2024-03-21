@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 
-function CastInput({movieState,  setMovieState}){
-
+function CastInput({movieState,  setMovieState,setDummy}){
 
     const [i, setI] = useState(0);
     const [inputs, setInputs] = useState([]);
@@ -12,7 +11,6 @@ function CastInput({movieState,  setMovieState}){
     setMovieState(updateState);
 
     
- 
     function addInput(e){
         e.preventDefault()  
 
@@ -24,7 +22,7 @@ function CastInput({movieState,  setMovieState}){
         });
 
         let updatedInputs = [...inputs];
-        updatedInputs.push(<Input i={i} castInfo={castInfo}/>);
+        updatedInputs.push(<Input i={i} castInfo={castInfo} setDummy={setDummy}/>);
         setInputs(updatedInputs);
         
         
@@ -46,7 +44,7 @@ function CastInput({movieState,  setMovieState}){
     )
 }
 
-function Input({i, castInfo}){
+function Input({i, castInfo, setDummy}){
 
     const [cast, setCast] = useState({name:""});
     const [src, setSrc] = useState("");
@@ -66,6 +64,7 @@ function Input({i, castInfo}){
     // console.table(castInfo);
     castInfo[i].name = cast.name;
     castInfo[i].image = cast.file;
+    setDummy((value)=>{return !value });
 
 
     return(

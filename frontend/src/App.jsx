@@ -4,6 +4,7 @@ import CastInput from './CastInput';
 function App() {
   
   const [movieState, setMovieState] = useState( {name:"", ss:[], cast:[] });
+  const [dummy, setDummy] = useState(false);
 
   function setSS(e){
     let updatedState = {...movieState};
@@ -44,7 +45,7 @@ function App() {
         <ScreenShots ss={Array.from(movieState.ss)}></ScreenShots>
       </div>
 
-      <CastInput movieState={movieState} setMovieState={setMovieState} ></CastInput>
+      <CastInput movieState={movieState} setMovieState={setMovieState} setDummy={setDummy}></CastInput>
       <button className="submit-btn" type='submit'>Upload</button>
     </>
 
