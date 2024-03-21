@@ -3,8 +3,16 @@ import CastInput from './CastInput';
 
 function App() {
   
-  const [movieState, setMovieState] = useState( {name:"", ss:[], cast:[] });
+  const [movieState, setMovieState] = useState( {name:"",thumb:null, ss:[], cast:[] });
+  const [thumbSrc, setThumbSrc] = useState("");
   const [dummy, setDummy] = useState(false);
+
+  function setThumb(e){
+    let updatedState = {...movieState};
+    updatedState.thumb = e.target.files[0];
+    setMovieState(updatedState);
+    setThumbSrc(URL.createObjectURL(e.target.files[0]))
+  }
 
   function setSS(e){
     let updatedState = {...movieState};
@@ -31,6 +39,12 @@ function App() {
             </div>
             <br />
             <div className="input-group">
+                <label htmlFor='name'>Thumb </label>
+                <input type="file" onChange={setThumb}/>
+                
+            </div>
+            <br />
+            <div className="input-group">
                 <label htmlFor='files'>ScreenShots </label>
                 <input id='files' type="file" onChange={setSS} multiple/>
             </div>
@@ -41,6 +55,7 @@ function App() {
 
       <div className='result'>
         <h3>Name : {movieState.name}</h3>
+        <img src={thumbSrc} alt=""  height="300px"/>
         <h1>ScreenShot</h1>
         <ScreenShots ss={Array.from(movieState.ss)}></ScreenShots>
       </div>
