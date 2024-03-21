@@ -20,7 +20,7 @@ function App() {
 
   return (
     <>
-    {console.log(movieState)}
+    {console.table(movieState)}
       <div className="container">
         <h1>File Upload</h1>
         <form id='form'>

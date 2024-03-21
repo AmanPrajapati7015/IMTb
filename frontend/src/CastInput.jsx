@@ -11,7 +11,10 @@ function CastInput(){
         e.preventDefault()  
 
         setCastInfo(castInfo=>{
-            castInfo.push({name:"", image:null});
+            // console.log(castInfo, castInfo.length)
+            if(i>=castInfo.length){
+                castInfo.push({name:"", image:null});
+            }
             return castInfo
         });
 
@@ -20,7 +23,7 @@ function CastInput(){
         setInputs(updatedInputs);
         
         
-
+        
         setI(i=>i+1);
     }
 
@@ -56,7 +59,7 @@ function Input({i, castInfo}){
         setSrc(URL.createObjectURL(e.target.files[0]));
     }   
 
-    console.log(castInfo);
+    console.table(castInfo);
     castInfo[i].name = cast.name;
     castInfo[i].image = cast.file;
 
