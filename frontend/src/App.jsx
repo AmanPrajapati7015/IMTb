@@ -2,23 +2,36 @@ import { useState } from 'react'
 import CastInput from './CastInput';
 
 function App() {
-  const [ss, setSS] = useState([])
-  const [name, setName] = useState('');
-  const [cast, setCast] = useState([]);
+  
+  const [movieState, setMovieState] = useState( {name:"", ss:[], cast:[] });
+
+  function setSS(e){
+    let updatedState = {...movieState};
+    updatedState.ss = e.target.files;
+    setMovieState(updatedState);    
+  }
+
+  function setName(e){
+    let updatedState = {...movieState};
+    updatedState.name= e.target.value;
+    setMovieState(updatedState);     
+  }
+
 
   return (
     <>
+    {console.log(movieState)}
       <div className="container">
         <h1>File Upload</h1>
         <form id='form'>
             <div className="input-group">
                 <label htmlFor='name'>Movie </label>
-                <input id='name' onChange={(e)=>{setName(e.target.value)}} placeholder="Enter movie name" />
+                <input id='name' onChange={setName} placeholder="Enter movie name" />
             </div>
             <br />
             <div className="input-group">
                 <label htmlFor='files'>ScreenShots </label>
-                <input id='files' type="file" onChange={(e)=>{setSS(e.target.files)}} multiple/>
+                <input id='files' type="file" onChange={setSS} multiple/>
             </div>
             <br />
             <br />
@@ -26,12 +39,12 @@ function App() {
       </div>
 
       <div className='result'>
-        <h3>Name : {name}</h3>
+        <h3>Name : {movieState.name}</h3>
         <h1>ScreenShot</h1>
-        <ScreenShots ss={Array.from(ss)}></ScreenShots>
+        <ScreenShots ss={Array.from(movieState.ss)}></ScreenShots>
       </div>
 
-      <CastInput cast={cast} setCast={setCast}></CastInput>
+      <CastInput movieState={movieState} setMovieState={setMovieState} ></CastInput>
       <button className="submit-btn" type='submit'>Upload</button>
     </>
 
