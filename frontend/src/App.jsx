@@ -1,17 +1,17 @@
 import { useState } from 'react'
 import CastInput from './CastInput';
+import DisplayMovie from './DisplayMovie';
+import FormInput from './FormInput';
 
 function App() {
   
-  const [movieState, setMovieState] = useState( {name:"",thumb:null, ss:[], cast:[] });
-  const [thumbSrc, setThumbSrc] = useState("");
-  const [dummy, setDummy] = useState(false);
+  const [movieState, setMovieState] = useState( {name:"", rating:0, plot:'', trailer:'',thumb:null, ss:[], cast:[] });
+  const [dummy, setDummy] = useState(0);
 
   function setThumb(e){
     let updatedState = {...movieState};
     updatedState.thumb = e.target.files[0];
     setMovieState(updatedState);
-    setThumbSrc(URL.createObjectURL(e.target.files[0]))
   }
 
   function setSS(e){
@@ -26,41 +26,50 @@ function App() {
     setMovieState(updatedState);     
   }
 
+  function setRating(e){
+    let updatedState = {...movieState};
+    updatedState.rating= e.target.value;
+    setMovieState(updatedState);
+  }
+
+  function setPlot(e){
+    let updatedState = {...movieState};
+    updatedState.plot= e.target.value;
+    setMovieState(updatedState);
+  }
+
+  function setTrailer(e){
+    let updatedState = {...movieState};
+    updatedState.trailer= e.target.value;
+    setMovieState(updatedState);
+  }
+
+  function makePreview(e){
+    e.preventDefault();
+    let temp = dummy;
+    temp++;
+    setDummy(temp);
+  }
+
 
   return (
     <>
-    {console.table(movieState)}
+    {console.log(movieState)}
       <div className="container">
-        <h1>File Upload</h1>
-        <form id='form'>
-            <div className="input-group">
-                <label htmlFor='name'>Movie </label>
-                <input id='name' onChange={setName} placeholder="Enter movie name" />
-            </div>
-            <br />
-            <div className="input-group">
-                <label htmlFor='name'>Thumb </label>
-                <input type="file" onChange={setThumb}/>
-                
-            </div>
-            <br />
-            <div className="input-group">
-                <label htmlFor='files'>ScreenShots </label>
-                <input id='files' type="file" onChange={setSS} multiple/>
-            </div>
-            <br />
-            <br />
-        </form>
+        <h1>Add Movie</h1>
+        <FormInput setName={setName} setRating={setRating} setPlot={setPlot} setThumb={setThumb} setSS={setSS} setTrailer={setTrailer} />
+        <CastInput movieState={movieState} setMovieState={setMovieState} ></CastInput>
       </div>
-
+      <button onClick={makePreview} >Check Preview</button>
+      {
+      (dummy)?
       <div className='result'>
-        <h3>Name : {movieState.name}</h3>
-        <img src={thumbSrc} alt=""  height="300px"/>
-        <h1>ScreenShot</h1>
-        <ScreenShots ss={Array.from(movieState.ss)}></ScreenShots>
+        <h1>Movie Preview</h1>
+        <DisplayMovie state={movieState}/>
       </div>
-
-      <CastInput movieState={movieState} setMovieState={setMovieState} setDummy={setDummy}></CastInput>
+      :"" 
+      }
+      
       <button className="submit-btn" type='submit'>Upload</button>
     </>
 
@@ -68,26 +77,8 @@ function App() {
 }
 
 
-function ScreenShots({ss}){
-  return(
-    <>
-    {ss.map(image=>{
-      return(
-        <>
-          <img src={URL.createObjectURL(image)}  width= '1000px'/>
-          <br/>
-        </>
-      )
-    })}
-    </>
-  )
-}
-
-
 export default App
 
 // #Todo
-// 1. maintain aspect ratio 
-// 2. upload section for cast with their names
-// 3. make space for thumbnail
-// 4. make backend accept this complex state
+// 1. stucture form and then preview of movie page
+// 2. make backend accept this complex state

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-function CastInput({movieState,  setMovieState,setDummy}){
+function CastInput({movieState,  setMovieState}){
 
     const [i, setI] = useState(0);
     const [inputs, setInputs] = useState([]);
@@ -22,7 +22,7 @@ function CastInput({movieState,  setMovieState,setDummy}){
         });
 
         let updatedInputs = [...inputs];
-        updatedInputs.push(<Input i={i} castInfo={castInfo} setDummy={setDummy}/>);
+        updatedInputs.push(<Input i={i} castInfo={castInfo}/>);
         setInputs(updatedInputs);
         
         
@@ -32,19 +32,20 @@ function CastInput({movieState,  setMovieState,setDummy}){
 
     return(     
         <>
-        {inputs.map(comp=>{
-            return comp
-        })
-        } 
-        <br />
-        <br />      
+        <h2>Cast</h2>
+        <div style={{display:'flex', flexWrap:'wrap'}}>
+            {inputs.map(comp=>{
+                return comp
+            })
+            } 
+        </div>
         <button onClick={addInput} >Add cast</button>
         <br />
         </> 
     )
 }
 
-function Input({i, castInfo, setDummy}){
+function Input({i, castInfo}){
 
     const [cast, setCast] = useState({name:""});
     const [src, setSrc] = useState("");
@@ -64,22 +65,23 @@ function Input({i, castInfo, setDummy}){
     // console.table(castInfo);
     castInfo[i].name = cast.name;
     castInfo[i].image = cast.file;
-    setDummy((value)=>{return !value });
 
 
     return(
         <>
-        <div>
-            <label>Name</label>
-            <input type="text" onChange={setName} />
-            <br />
-            <label>Image</label>
-            <input onChange={setImage} type="file"/>
-            <br />
-            <img src={src} alt="" />
-            <p>{cast.name}</p>
-            <br />
-            <br />
+        <div style={{border:'1px solid white', padding:'10px',width:"300px",display:'flex', gap:'10px', flexDirection:'column', margin:'10px'}} >
+            <div>
+                <label>Name</label>
+                <input type="text" onChange={setName} />
+            </div>
+            <div>
+                <label>Image</label>
+                <input onChange={setImage} type="file"/>
+            </div>
+            <div style={{alignSelf:'center'}}>
+                <img src={src} alt=""  width='150px'/>
+                <p>{cast.name}</p>
+            </div>
         </div>
         </>
     )
