@@ -3,8 +3,34 @@ function DisplayMovie({state}){
 
     return(
         <>
+        
+
+
 
         <div class="container">
+        <div class="card" >
+            <div class="img">
+                <img src={(state.thumb)? URL.createObjectURL(state.thumb):""} alt=""/>
+            </div>
+            <div class="bookmark">
+                <img src="./src/assets/icons/bookmark_add.svg" alt=""/>
+            </div>
+            <div class="about" >
+                <div class="stars">
+                    <img src="./src/assets/icons/star-solid.svg" alt="" width="20px" height="20px"/>
+                    <p>{state.rating}</p>
+                    <img src="./src/assets/icons/star-regular.svg" alt="" width="20px" height="20px"/> 
+                </div>
+                <h3>{state.name}</h3>
+                <button>+ Watchlist</button>
+                <a href={state.trailer}>
+                    <div class="trailer">
+                        <img src="./src/assets/icons/play-solid.svg" alt=""  width="15px" height="15px"/> 
+                        <p>Trailer</p>
+                    </div>
+                </a>
+            </div>
+        </div>
         <div class="info">
             <h1 class="title">{state.name}</h1>
             <div class="rating">
@@ -33,12 +59,10 @@ function DisplayMovie({state}){
         </div>
 
     </div>
-    <h1>ThumbNail</h1>
-    <div>
-        <img src={(state.thumb)? URL.createObjectURL(state.thumb):""} alt=""  height="300px"/>
-    </div>
+    
+    
 
-        </>
+    </>
     )
 
 }

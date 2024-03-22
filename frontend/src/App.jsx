@@ -59,18 +59,15 @@ function App() {
         <h1>Add Movie</h1>
         <FormInput setName={setName} setRating={setRating} setPlot={setPlot} setThumb={setThumb} setSS={setSS} setTrailer={setTrailer} />
         <CastInput movieState={movieState} setMovieState={setMovieState} ></CastInput>
+        <button onClick={makePreview} >Check Preview</button>
+        <button className="submit-btn" type='sub'>Upload</button>
       </div>
-      <button onClick={makePreview} >Check Preview</button>
-      {
-      (dummy)?
-      <div className='result'>
-        <h1>Movie Preview</h1>
+
+      {(dummy)?
+      <div className='result' style={{backgroundColor:'black', padding:"50px 0"}}>
         <DisplayMovie state={movieState}/>
       </div>
-      :"" 
-      }
-      
-      <button className="submit-btn" type='submit'>Upload</button>
+      :""}
     </>
 
 )
