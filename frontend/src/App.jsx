@@ -80,5 +80,5 @@ function App() {
 export default App
 
 // #Todo
-// 1. stucture form and then preview of movie page
+// 1. make thumbnail  
 // 2. make backend accept this complex state
