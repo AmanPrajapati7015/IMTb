@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import axios from 'axios'
-import CastInput from './CastInput';
+import CastInput from './uploadComponents/CastInput';
 import DisplayMovie from './DisplayMovie';
-import FormInput from './FormInput';
+import FormInput from './uploadComponents/FormInput';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -80,7 +80,7 @@ function UploadPage() {
 
         let res = await axios.post("http://localhost:3000/upload", formData)
         if (res.status == 200) {
-            navigate('/preview',{ state:res.data});
+            navigate('/preview',{ state:res.data });
         }
 
         console.log(res.data);

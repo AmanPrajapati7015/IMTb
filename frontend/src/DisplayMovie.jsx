@@ -1,25 +1,13 @@
 import './assets/styles.css'
-import { useLocation } from 'react-router-dom';
+import Card from './Card'
 
-function DisplayMovie({ state }) {
-
-    let imageSrc = false;
-
-    const location = useLocation();
-    if (location.state) {
-        state = location.state;
-        imageSrc = true;
-        console.log(state);
-
-    }
+function DisplayMovie({imageSrc, state }) {
 
     return (
         <>
             <div className='result' style={{ backgroundColor: 'black', padding: "50px 0" }}>
                 <div class="container" >
-
                     {(!imageSrc) ? <Card state={state} imageSrc={imageSrc}/> : ""}
-
                     <div class="info">
                         <h1 class="title">{state.name}</h1>
                         <div class="rating">
@@ -49,33 +37,6 @@ function DisplayMovie({ state }) {
 
 }
 
-function Card({ state, imageSrc }) {
-    return (
-        <div class="card" >
-            <div class="img">
-                <img src={(imageSrc) ? state.thumb : (state.thumb) ? URL.createObjectURL(state.thumb) : ""} alt="" />
-            </div>
-            <div class="bookmark">
-                <img src="./src/assets/icons/bookmark_add.svg" alt="" />
-            </div>
-            <div class="about" >
-                <div class="stars">
-                    <img src="./src/assets/icons/star-solid.svg" alt="" width="20px" height="20px" />
-                    <p>{state.rating}</p>
-                    <img src="./src/assets/icons/star-regular.svg" alt="" width="20px" height="20px" />
-                </div>
-                <h3>{state.name}</h3>
-                <button>+ Watchlist</button>
-                <a href={state.trailer}>
-                    <div class="trailer">
-                        <img src="./src/assets/icons/play-solid.svg" alt="" width="15px" height="15px" />
-                        <p>Trailer</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    )
-}
 
 function ScreenShots({ imageSrc, ss }) {
     return (
@@ -115,4 +76,6 @@ function CastPerson({ imageSrc, person }) {
         </>
     )
 }
+
+
 export default DisplayMovie;
