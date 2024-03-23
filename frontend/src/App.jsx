@@ -51,6 +51,40 @@ function App() {
     setDummy(temp);
   }
 
+  function uploadMovie(e){
+    e.preventDefault();
+    setDummy(1);
+    console.log(movieState);
+
+    const formData = new FormData();
+    formData.append('thumb', movieState.thumb);
+    for(let i=0 ; i<movieState.ss.length;i++){
+      formData.append('ss', movieState.ss[i]);
+    }
+    for(let i=0 ; i<movieState.cast.length;i++){
+      formData.append('cast', movieState.cast[i].image);
+    }
+    for(let i=0 ; i<movieState.cast.length;i++){
+      formData.append('castName', movieState.cast[i].name);
+    }
+    formData.append('name', movieState.name);
+    formData.append('plot', movieState.plot);
+    formData.append('rating', movieState.rating);
+    formData.append('trailer', movieState.trailer);
+
+    
+
+
+    console.log(formData);
+
+
+
+    fetch("http://localhost:3000/upload", {
+      method: 'POST',
+      body: formData
+    })
+    .then((res) => console.log(res))
+  }
 
   return (
     <>
@@ -60,7 +94,7 @@ function App() {
         <FormInput setName={setName} setRating={setRating} setPlot={setPlot} setThumb={setThumb} setSS={setSS} setTrailer={setTrailer} />
         <CastInput movieState={movieState} setMovieState={setMovieState} ></CastInput>
         <button onClick={makePreview} >Check Preview</button>
-        <button className="submit-btn" type='sub'>Upload</button>
+        <button onClick={uploadMovie}>Upload</button>
       </div>
 
       {(dummy)?

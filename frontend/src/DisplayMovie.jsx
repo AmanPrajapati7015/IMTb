@@ -2,11 +2,7 @@ import './assets/styles.css'
 function DisplayMovie({state}){
 
     return(
-        <>
-        
-
-
-
+    <>
         <div class="container">
         <div class="card" >
             <div class="img">
@@ -57,15 +53,12 @@ function DisplayMovie({state}){
             <h2>ScreenShots</h2>
             <ScreenShots ss={Array.from(state.ss)}></ScreenShots>
         </div>
-
     </div>
-    
-    
-
     </>
     )
 
 }
+
 function ScreenShots({ss}){
     return(
       <>
@@ -94,7 +87,6 @@ function CastGrp({cast}){
 function CastPerson({person}){
     return (
         <>
-
         <div class="cast-person">
             <div class="img">
                 <img src={(person.image)? URL.createObjectURL(person.image):""} alt="img" />
