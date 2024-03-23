@@ -1,8 +1,6 @@
 const express = require('express')
 const cors = require("cors");
 const multer = require("multer");
-const fs = require('fs');
-const { log } = require('console');
 const upload = multer({ dest: "uploads/" });
 
 const app = express()
@@ -24,12 +22,16 @@ app.post('/upload',  upload.fields([{name:'thumb'}, {name:'ss'}, {name:'cast'}])
     let ss = req.files['ss'].map(info=>imagesURL+info.filename);
     stateObj.ss = ss;
 
-    let cast = {};
+    let cast = [];
     for(let i=0; i<req.files['cast'].length; i++){
-        cast[stateObj.castName[i]] = imagesURL+req.files['cast'][i].filename;
+        let obj ={}
+        obj.name = stateObj.castName[i];
+        obj.image = imagesURL+req.files['cast'][i].filename;
+        cast.push(obj);
     }
     stateObj.cast = cast;
     console.log(stateObj);
+    //store 'stateObj' it on mongo DB!!
 
     res.json(stateObj);
 })
