@@ -6,7 +6,7 @@ function DisplayMovie({state}){
         <div class="container">
         <div class="card" >
             <div class="img">
-                <img src={(state.thumb)? URL.createObjectURL(state.thumb):""} alt=""/>
+                <img src={(state.thumb != null)? URL.createObjectURL(state.thumb): state.thumb} alt=""/>
             </div>
             <div class="bookmark">
                 <img src="./src/assets/icons/bookmark_add.svg" alt=""/>
@@ -65,7 +65,7 @@ function ScreenShots({ss}){
       {ss.map(image=>{
         return(
           <div>
-            <img src={URL.createObjectURL(image)}  width= '1000px'/>
+            <img src={(typeof image != "string") ? URL.createObjectURL(image):image}  width= '1000px'/>
           </div>
         )
       })}
@@ -89,7 +89,7 @@ function CastPerson({person}){
         <>
         <div class="cast-person">
             <div class="img">
-                <img src={(person.image)? URL.createObjectURL(person.image):""} alt="img" />
+                <img src={(person.image != null)? URL.createObjectURL(person.image): person.image} alt="img" />
             </div>
             <p>{person.name}</p>  
         </div>

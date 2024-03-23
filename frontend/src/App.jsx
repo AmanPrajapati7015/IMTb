@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import axios from 'axios'
 import CastInput from './CastInput';
 import DisplayMovie from './DisplayMovie';
 import FormInput from './FormInput';
+import {Router, Routes, Route, useNavigate} from 'react-router-dom'
 
 function App() {
   
@@ -51,7 +53,7 @@ function App() {
     setDummy(temp);
   }
 
-  function uploadMovie(e){
+  async function uploadMovie(e){
     e.preventDefault();
     setDummy(1);
     console.log(movieState);
@@ -71,31 +73,49 @@ function App() {
     formData.append('plot', movieState.plot);
     formData.append('rating', movieState.rating);
     formData.append('trailer', movieState.trailer);
-    console.log(formData);
-    
-    fetch("http://localhost:3000/upload", {
-      method: 'POST',
-      body: formData
-    })
-    .then((res) => console.log(res))
+    // console.log(formData);
+
+    let res = await axios.post("http://localhost:3000/upload", formData)
+    if(res.status == 200){
+      const navigate = useNavigate();
+      navigate('/preview');
+    }
+
+    console.log(res.data);
   }
 
   return (
     <>
-    {console.log(movieState)}
-      <div className="container">
-        <h1>Add Movie</h1>
-        <FormInput setName={setName} setRating={setRating} setPlot={setPlot} setThumb={setThumb} setSS={setSS} setTrailer={setTrailer} />
-        <CastInput movieState={movieState} setMovieState={setMovieState} ></CastInput>
-        <button onClick={makePreview} >Check Preview</button>
-        <button onClick={uploadMovie}>Upload</button>
-      </div>
+    <Router>
+      <Routes>
+        <Route path='/' />
+        <Route path='/upload' >
+          {console.log(movieState)}
+          <div className="container">
+            <h1>Add Movie</h1>
+            <FormInput setName={setName} setRating={setRating} setPlot={setPlot} setThumb={setThumb} setSS={setSS} setTrailer={setTrailer} />
+            <CastInput movieState={movieState} setMovieState={setMovieState} ></CastInput>
+            <button onClick={makePreview} >Check Preview</button>
+            <button onClick={uploadMovie}>Upload</button>
+          </div>
 
-      {(dummy)?
-      <div className='result' style={{backgroundColor:'black', padding:"50px 0"}}>
-        <DisplayMovie state={movieState}/>
-      </div>
-      :""}
+          {(dummy)?
+          <div className='result' style={{backgroundColor:'black', padding:"50px 0"}}>
+            <DisplayMovie state={movieState}/>
+          </div>
+          :""}
+        </Route>
+
+        <Route path='/preview'>
+          <DisplayMovie state={movieState}/>
+        </Route>
+      </Routes>
+    </Router>
+
+
+
+
+
     </>
 
 )
