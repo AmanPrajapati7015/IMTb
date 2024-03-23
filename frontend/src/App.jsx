@@ -71,14 +71,8 @@ function App() {
     formData.append('plot', movieState.plot);
     formData.append('rating', movieState.rating);
     formData.append('trailer', movieState.trailer);
-
-    
-
-
     console.log(formData);
-
-
-
+    
     fetch("http://localhost:3000/upload", {
       method: 'POST',
       body: formData
@@ -111,5 +105,4 @@ function App() {
 export default App
 
 // #Todo
-// 1. make thumbnail  
-// 2. make backend accept this complex state
+// 1. make state at backend from coming data

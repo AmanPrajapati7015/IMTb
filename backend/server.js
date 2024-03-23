@@ -15,12 +15,18 @@ app.get('/', (req, res)=>{
     res.send("homepage")
 })
 
-app.post('/upload',  upload.fields([{name:'ss'}, {name:'thumb'}, {name:'cast'}]),(req, res)=>{
-    console.log(req.body);
-    console.log(req.files['thumb']);
-    console.log(req.files['ss']);
-    console.log(req.files['cast']);
+app.post('/upload',  upload.fields([{name:'thumb'}, {name:'ss'}, {name:'cast'}]),(req, res)=>{
+    let stateObj = req.body;
+    stateObj.thumb = req.files['thumb'][0].filename;
+    let ss = req.files['ss'].map(info=>info.filename);
+    stateObj.ss = ss;
 
+    let cast = {};
+    for(let i=0; i<req.files['cast'].length; i++){
+        cast[stateObj.castName[i]] = req.files['cast'][i].filename;
+    }
+    stateObj.cast = cast;
+    console.log(stateObj);
 
     res.send('uploaded');
 })
