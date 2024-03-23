@@ -1,46 +1,56 @@
 const express = require('express')
+const mongoose = require('mongoose');
 const cors = require("cors");
+const MovieModel = require('./mongoDB')
 const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
+
+const mongoURI = 'mongodb+srv://aman7015:aman7015@cluster0.wva3zeh.mongodb.net/?retryWrites=true&w=majority'; // Update with your MongoDB URI and database name
+
 
 const app = express()
 const port = 3000
 
-const imagesURL ="http://localhost:3000/uploads/"
+const imagesURL = "http://localhost:3000/uploads/"
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res)=>{
+app.get('/', (req, res) => {
     res.send("homepage")
 })
 
-app.post('/upload',  upload.fields([{name:'thumb'}, {name:'ss'}, {name:'cast'}]),(req, res)=>{
-    let stateObj = req.body;
-    stateObj.thumb = imagesURL+req.files['thumb'][0].filename;
-    let ss = req.files['ss'].map(info=>imagesURL+info.filename);
+app.post('/upload', upload.fields([{ name: 'thumb' }, { name: 'ss' }, { name: 'cast' }]), async (req, res) => {
+    let stateObj = { ...req.body };
+    stateObj.thumb = imagesURL + req.files['thumb'][0].filename;
+    let ss = req.files['ss'].map(info => imagesURL + info.filename);
     stateObj.ss = ss;
 
     let cast = [];
-    for(let i=0; i<req.files['cast'].length; i++){
-        let obj ={}
+    for (let i = 0; i < req.files['cast'].length; i++) {
+        let obj = {}
         obj.name = stateObj.castName[i];
-        obj.image = imagesURL+req.files['cast'][i].filename;
+        obj.image = imagesURL + req.files['cast'][i].filename;
         cast.push(obj);
     }
     stateObj.cast = cast;
     console.log(stateObj);
-    //store 'stateObj' it on mongo DB!!
 
+    let movie = new MovieModel(stateObj);
+    movie.save();
     res.json(stateObj);
 })
 
-app.get('/uploads/:name', (req, res)=>{
+app.get('/uploads/:name', (req, res) => {
     console.log(req.params.name);
-    res.sendFile(__dirname+'/uploads/'+req.params.name);
+    res.sendFile(__dirname + '/uploads/' + req.params.name);
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+mongoose.connect(mongoURI, { dbName: "IMTb" })
+    .then(() => {
+        console.log("connected to Database");
+        app.listen(port, () => {
+            console.log(`Example app listening on port ${port}`)
+        })
+    })
