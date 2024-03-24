@@ -12,17 +12,17 @@ function Card({ id, state, imageSrc }) {
 
 
     return (
-        <div class="card" >
+        <div className="card" >
             <a onClick={gotoDetails}>
-                <div class="img">
+                <div className="img">
                     <img src={(imageSrc) ? state.thumb : (state.thumb) ? URL.createObjectURL(state.thumb) : ""} alt="" />
                 </div>
             </a>
-            <div class="bookmark">
+            <div className="bookmark">
                 <img src="/icons/bookmark_add.svg" alt="" />
             </div>
-            <div class="about" >
-                <div class="stars">
+            <div className="about" >
+                <div className="stars">
                     <img src="/icons/star-solid.svg" alt="" width="20px" height="20px" />
                     <p>{state.rating}</p>
                     <img src="/icons/star-regular.svg" alt="" width="20px" height="20px" />
@@ -30,7 +30,7 @@ function Card({ id, state, imageSrc }) {
                 <h3>{state.name}</h3>
                 <button>+ Watchlist</button>
                 <a href={state.trailer}>
-                    <div class="trailer">
+                    <div className="trailer">
                         <img src="/icons/play-solid.svg" alt="" width="15px" height="15px" />
                         <p>Trailer</p>
                     </div>

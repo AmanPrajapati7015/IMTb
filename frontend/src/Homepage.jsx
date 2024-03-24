@@ -3,9 +3,8 @@ import axios from 'axios';
 import './assets/styles.css'
 import Card from "./Card";
 
-function HomePage(){
+function HomePage({movies, setMovies}){
     const [isLoading, setIsLoading] = useState(true);
-    const [movies, setMovies] = useState([]);
 
     useEffect(()=>{
         axios.get('http://localhost:3000/').then((res)=>{
