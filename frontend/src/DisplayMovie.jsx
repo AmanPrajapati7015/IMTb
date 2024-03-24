@@ -5,13 +5,13 @@ function DisplayMovie({imageSrc, state }) {
 
     return (
         <>
-            <div className='result' style={{ backgroundColor: 'black', padding: "50px 0" }}>
+            <div className='result' >
                 <div class="container" >
                     {(!imageSrc) ? <Card state={state} imageSrc={imageSrc}/> : ""}
                     <div class="info">
                         <h1 class="title">{state.name}</h1>
                         <div class="rating">
-                            <h2 title="rating"><img src="./src/assets/icons/star-regular.svg" alt="" height="30px" />  {state.rating}/10</h2>
+                            <h2 title="rating"><img src="../public/icons/starregular.svg" alt="" height="30px" />  {state.rating}/10</h2>
                         </div>
                     </div>
                     <div class="trailer">

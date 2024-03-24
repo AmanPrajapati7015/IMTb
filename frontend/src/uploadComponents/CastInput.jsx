@@ -68,14 +68,14 @@ function Input({i, castInfo}){
 
     return(
         <>
-        <div style={{border:'1px solid black', padding:'10px',width:"300px",display:'flex', gap:'10px', flexDirection:'column', margin:'10px'}} >
+        <div style={{border:'1px solid white', padding:'10px',width:"300px",display:'flex', gap:'10px', flexDirection:'column', margin:'10px'}} >
             <div>
                 <label>Name</label>
                 <input type="text" onChange={setName} />
             </div>
             <div>
                 <label>Image</label>
-                <input onChange={setImage} type="file"/>
+                <input onChange={setImage} accept="image/*" type="file"/>
             </div>
             <div style={{alignSelf:'center'}}>
                 <img src={src} alt=""  width='150px'/>

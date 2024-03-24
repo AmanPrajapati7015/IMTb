@@ -17,9 +17,21 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-    res.send("homepage")
+app.get('/', async(req, res) => {
+    const movies = await MovieModel.find({});
+    res.json(movies);
 })
+
+app.get('/movie/:id', async(req, res)=>{
+    try {
+        const movie = await MovieModel.findOne({_id : req.params.id});
+        res.json(movie);
+    }
+    catch{
+        res.status(400).send("invaid id")
+    }
+})
+
 
 app.post('/upload', upload.fields([{ name: 'thumb' }, { name: 'ss' }, { name: 'cast' }]), async (req, res) => {
     let stateObj = { ...req.body };
@@ -42,8 +54,9 @@ app.post('/upload', upload.fields([{ name: 'thumb' }, { name: 'ss' }, { name: 'c
     res.json(stateObj);
 })
 
+
+
 app.get('/uploads/:name', (req, res) => {
-    console.log(req.params.name);
     res.sendFile(__dirname + '/uploads/' + req.params.name);
 })
 
