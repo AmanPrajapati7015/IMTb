@@ -161,9 +161,16 @@ div.card div.about button:hover{
     background-color: #2F343B;
 }
 
+div.card a{
+    text-decoration: none;
+}
+
 div.card a div.trailer{
     padding: 5px;
     display: flex;
+    border-radius: 5px;
+
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap:5px;    

@@ -16,7 +16,6 @@ function App() {
         <Route path='/upload' element={<UploadPage />} /> 
         <Route path='/preview' element={<PreviewPage />} /> 
         <Route path='/movie/:id' element={<MoviePage />} /> 
-
       </Routes>
     </BrowserRouter>
     </>
