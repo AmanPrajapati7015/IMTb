@@ -1,0 +1,68 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+a:visited, a{
+    text-decoration: none;
+}
+body{
+    background-color: black;
+}
+
+/* Navbar */
+div.navbar{
+    background-color: #181818;
+    color: white;
+}
+
+nav{
+    max-width: 1300px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 10px 0;
+    margin: 0 auto;
+}
+nav div.search{
+    flex-grow: 1;
+}
+nav div.search input{
+    width: 90%;
+}
+
+.home_btn, div.search, div.watchlist{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    gap: 10px;
+}
+
+.home_btn:hover, div.watchlist:hover, .search>img:hover, h2.sign-in:hover{
+    scale: 1.2;
+}
+
+nav h1{
+    background-color: #F5C518;
+    font-family: 'Roboto Condensed';
+    font-size: 1.5rem;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+nav h2{
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+nav input{
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    border: 3px solid #181818;
+    border-radius: 7px;
+    outline: none;
+}
+
+nav input:focus{
+    border: 3px solid #F5C518;
+}

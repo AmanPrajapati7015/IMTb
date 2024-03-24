@@ -3,6 +3,7 @@ import PreviewPage from './PreviewPage';
 import UploadPage from './UploadPage';
 import MoviePage from './MoviePage';
 import {Routes, Route,BrowserRouter, useNavigate} from 'react-router-dom'
+import Navbar from './Navbar';
 
 function App() {
   
@@ -11,6 +12,7 @@ function App() {
     <>
     
     <BrowserRouter>
+    <Navbar/>
       <Routes>
         <Route path='/' element={<HomePage/>}/> 
         <Route path='/upload' element={<UploadPage />} /> 
