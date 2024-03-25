@@ -3,7 +3,7 @@ import PreviewPage from './PreviewPage';
 import UploadPage from './UploadPage';
 import MoviePage from './MoviePage';
 import Navbar from './Navbar';
-import {Routes, Route,BrowserRouter} from 'react-router-dom'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import { useState } from 'react';
 import Signup from './Signup';
 import Signin from './Signin';
@@ -11,25 +11,26 @@ import Signin from './Signin';
 
 function App() {
   const [movies, setMovies] = useState([]);
+  const [user, setUser] = useState(undefined);
+
 
   return (
     <>
-    
-    <BrowserRouter>
-    <Navbar movies={movies} setMovies={setMovies}/>
-      <Routes>
-        <Route path='/' element={<HomePage movies={movies} setMovies={setMovies}/>}/> 
-        <Route path='/upload' element={<UploadPage />} /> 
-        <Route path='/preview' element={<PreviewPage />} /> 
-        <Route path='/movie/:id' element={<MoviePage />} /> 
-        <Route path='/signup' element={<Signup />} /> 
-        <Route path='/signin' element={<Signin />} /> 
+      <BrowserRouter>
+        <Navbar user={user} setUser={setUser} setMovies={setMovies} />
+        <Routes>
+          <Route path='/' element={<HomePage movies={movies} setMovies={setMovies} />} />
+          <Route path='/upload' element={<UploadPage />} />
+          <Route path='/preview' element={<PreviewPage />} />
+          <Route path='/movie/:id' element={<MoviePage />} />
+          <Route path='/signup' element={<Signup setUser={setUser} />} />
+          <Route path='/signin' element={<Signin setUser={setUser} />} />
 
-        
-      </Routes>
-    </BrowserRouter>
+
+        </Routes>
+      </BrowserRouter>
     </>
-)
+  )
 }
 
 

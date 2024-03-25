@@ -37,8 +37,6 @@ const userAuthentication = (req, res, next) => {
     })
 };
 
-
-
 app.post('/users/signup', async (req, res) => {
     const user = { ...req.body, watchList: [] };
     const existingUser = await Users.findOne({ username: user.username });
@@ -54,7 +52,7 @@ app.post('/users/signup', async (req, res) => {
 
 app.post('/users/signin', async (req, res) => {
     const { username, password } = req.headers;
-    const user = await Users.findOne({ username: username, password: password });
+    const user = await Users.findOne({ username, password});
     if (user) {
         let token = jwt.sign({ username, password }, secretUser);
         res.json({ message: 'Logged in successfully', token });

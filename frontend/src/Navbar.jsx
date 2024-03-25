@@ -1,13 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios  from "axios";
 import { useNavigate } from "react-router-dom";
 
 // import '/styles.css'
-function Navbar({setMovies}){
+function Navbar({setMovies, user, setUser}){
+
+    const navigate = useNavigate();
 
     const [query, setQuery] = useState("");    
 
-    const navigate = useNavigate();
+
+    useEffect(()=>{
+        if(localStorage.getItem("token")){
+            axios.get('http://localhost:3000/me', {headers:{Authorization:"Bearer "+localStorage.getItem("token")}})
+            .then((res)=>{
+                setUser(res.data);
+            })
+            .catch(()=>{   
+                console.log("invalid auth token");
+            })
+        }
+    },[])
+
 
     function updateQuery(e){
         setQuery(e.target.value);
@@ -29,24 +43,18 @@ function Navbar({setMovies}){
             })
             setMovies(filtered);
         })
-    }
+    }        
 
-    function goToSignin(){
-        navigate("/signin")
+    function signOut(){
+        localStorage.removeItem("token");
+        setUser("");
     }
-    function goToSignup(){
-        navigate("/signup")
-    }
-    function goToHome(){
-        navigate("/")
-    }
-        
 
     return(<>
     <link rel="stylesheet" href="/styles.css" />
     <div className="navbar">
         <nav>
-            <h1 onClick={goToHome}>IMTb</h1>
+            <h1 onClick={()=>navigate("/")}>IMTb</h1>
             <div className="search">
                 <input type="text" onChange={updateQuery} onKeyDown={searchEnter}  placeholder="Search IMTb"/>
                 <img src="./icons/search.svg" onClick={()=>search(query)} alt=""  width="25px" height="25px"/>
@@ -55,8 +63,14 @@ function Navbar({setMovies}){
                 <img src="./icons/bookmark.svg" alt=""  width="25px" height="25px"/>
                 <h2>Watch list</h2>
             </div>
-            <h2 onClick={goToSignin} className="sign-in">Sign in</h2>
-            <h2 onClick={goToSignup} className="sign-in">Sign up</h2>
+            {(!user)?<>
+                <h2 onClick={()=>navigate("/signin")} className="sign-in">Sign in</h2>
+                <h2 onClick={()=>navigate("/signup")} className="sign-in">Sign up</h2>
+            </>:<>
+                <h2>{user}</h2>
+                <h2 onClick={signOut}>Log Out</h2>
+            </>
+            }
         </nav>
     </div>        
  
