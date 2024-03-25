@@ -11,6 +11,13 @@ const movieSchema = new mongoose.Schema({
     cast: [{ name: String, image: String }]
 });
 
-const Movie = mongoose.model('Movie', movieSchema);
+const userSchema = new mongoose.Schema({
+    username:String,
+    password:String,
+    watchList:[{type:mongoose.Schema.Types.ObjectId, ref:'movies'}]
+})
 
-module.exports = Movie
+const MovieModel = mongoose.model('Movie', movieSchema);
+const Users = mongoose.model("user", userSchema);
+
+module.exports = {MovieModel, Users}
