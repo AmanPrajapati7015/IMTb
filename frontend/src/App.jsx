@@ -5,6 +5,9 @@ import MoviePage from './MoviePage';
 import Navbar from './Navbar';
 import {Routes, Route,BrowserRouter} from 'react-router-dom'
 import { useState } from 'react';
+import Signup from './Signup';
+import Signin from './Signin';
+
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -19,6 +22,10 @@ function App() {
         <Route path='/upload' element={<UploadPage />} /> 
         <Route path='/preview' element={<PreviewPage />} /> 
         <Route path='/movie/:id' element={<MoviePage />} /> 
+        <Route path='/signup' element={<Signup />} /> 
+        <Route path='/signin' element={<Signin />} /> 
+
+        
       </Routes>
     </BrowserRouter>
     </>
@@ -30,5 +37,7 @@ function App() {
 export default App
 
 // #Todo
-// 1. don't allow invalid requests ()
-// 3. button in card have lines
+// 1. make search in backend instead of frontend
+// 2. validate uploads before saving them in backend and give user alert to fill form completely
+// 3. make sign in and sign up 
+// 4. maintain watchlist

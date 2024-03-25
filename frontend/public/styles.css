@@ -44,7 +44,7 @@ nav div.search input{
 
 nav h1{
     background-color: #F5C518;
-    font-family: 'Roboto Condensed';
+    font-family:Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
     color: black;
     padding: 5px 10px;
@@ -65,4 +65,12 @@ nav input{
 
 nav input:focus{
     border: 3px solid #F5C518;
+}
+
+
+
+.wrap{
+    width: 500px;
+    background-color: red;
+    margin: 100px auto;
 }

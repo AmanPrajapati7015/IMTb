@@ -91,7 +91,7 @@ div.cast div.img img{
 div.cards{
     display: flex;
     justify-content: center;
-    gap: 50px;
+    gap:  50px 12px;
     flex-wrap: wrap;
 }
 
