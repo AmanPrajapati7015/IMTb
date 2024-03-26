@@ -77,8 +77,8 @@ app.put("/user/add-to-watchlist",userAuthentication, async(req, res)=>{
 })
 
 app.get("/user/watchlist", userAuthentication, async(req, res)=>{
-    const movies = req.user.populate("watchList");
-    res.send(movies);
+    const userPopulated = await req.user.populate("watchList");
+    res.send(userPopulated.watchList);
 })
 
 app.get("/me", userAuthentication, (req, res)=>{

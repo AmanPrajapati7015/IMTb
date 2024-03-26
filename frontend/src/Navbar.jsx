@@ -61,7 +61,7 @@ function Navbar({setMovies, user, setUser}){
             </div>
             <div className="watchlist">
                 <img src="./icons/bookmark.svg" alt=""  width="25px" height="25px"/>
-                <h2>Watch list</h2>
+                <h2 onClick={()=>navigate('/watchlist')}>Watch list</h2>
             </div>
             {(!user)?<>
                 <h2 onClick={()=>navigate("/signin")} className="sign-in">Sign in</h2>

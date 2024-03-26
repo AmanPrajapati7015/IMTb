@@ -2,6 +2,7 @@ import HomePage from './Homepage';
 import PreviewPage from './PreviewPage';
 import UploadPage from './UploadPage';
 import MoviePage from './MoviePage';
+import WatchList from './WatchList';
 import Navbar from './Navbar';
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import { useState } from 'react';
@@ -25,7 +26,7 @@ function App() {
           <Route path='/movie/:id' element={<MoviePage />} />
           <Route path='/signup' element={<Signup setUser={setUser} />} />
           <Route path='/signin' element={<Signin setUser={setUser} />} />
-
+          <Route path='/watchlist' element={<WatchList />} />
 
         </Routes>
       </BrowserRouter>
