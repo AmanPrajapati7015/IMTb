@@ -14,7 +14,7 @@ const movieSchema = new mongoose.Schema({
 const userSchema = new mongoose.Schema({
     username:String,
     password:String,
-    watchList:[{type:mongoose.Schema.Types.ObjectId, ref:'movies'}]
+    watchList:[{type:mongoose.Schema.Types.ObjectId, ref:'Movie'}]
 })
 
 const MovieModel = mongoose.model('Movie', movieSchema);

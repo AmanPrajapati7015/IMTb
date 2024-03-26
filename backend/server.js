@@ -28,11 +28,11 @@ const userAuthentication = (req, res, next) => {
         }
         else {
             const found = await Users.findOne({ username: user.username, password: user.password });
-            req.user = found //used while purchasing course
+            req.user = found //used while adding to watchlist
             if (found) {
                 return next();
             }
-            return res.status(403).send("Authentication of user failed")
+            return res.status(400).send("Authentication of user failed")
         }
     })
 };
@@ -59,6 +59,26 @@ app.post('/users/signin', async (req, res) => {
     } else {
         res.status(403).json({ message: 'User authentication failed' });
     }
+})
+
+app.put("/user/add-to-watchlist",userAuthentication, async(req, res)=>{
+    const user = req.user;
+    if(user.watchList.includes(req.body.id)){
+        return res.status(403).send("This movie already exist in watchlist");
+    }
+    user.watchList.push(req.body.id);
+    user.save()
+    .then(()=>{
+        res.send("saved");
+    })
+    .catch((err)=>{
+        res.status(404).send("can't add this movie to watchlist");
+    })
+})
+
+app.get("/user/watchlist", userAuthentication, async(req, res)=>{
+    const movies = req.user.populate("watchList");
+    res.send(movies);
 })
 
 app.get("/me", userAuthentication, (req, res)=>{
