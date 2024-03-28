@@ -109,7 +109,7 @@ app.get('/movie/:id', async (req, res) => {
 })
 
 
-app.post('/upload', upload.fields([{ name: 'thumb' }, { name: 'ss' }, { name: 'cast' }]), async (req, res) => {
+app.post('/upload',  upload.fields([{ name: 'thumb' }, { name: 'ss' }, { name: 'cast' }]), async (req, res) => {
     let stateObj = { ...req.body };
     stateObj.thumb = imagesURL + req.files['thumb'][0].filename;
     let ss = req.files['ss'].map(info => imagesURL + info.filename);

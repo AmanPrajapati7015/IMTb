@@ -62,21 +62,51 @@ function UploadPage() {
         console.log(movieState);
 
         const formData = new FormData();
+        if(!movieState.thumb){
+            alert('please upload a valid thumbnail');
+            return;
+        }
         formData.append('thumb', movieState.thumb);
+
+        if(movieState.ss.length==0){
+            alert('please uplad a atleast one screen shot');
+            return;
+        }
+
         for (let i = 0; i < movieState.ss.length; i++) {
             formData.append('ss', movieState.ss[i]);
         }
-        for (let i = 0; i < movieState.cast.length; i++) {
-            formData.append('cast', movieState.cast[i].image);
+
+        if(movieState.cast.length==0){
+            alert('please uplad a atleast one cast');
+            return;
         }
+
         for (let i = 0; i < movieState.cast.length; i++) {
+            if(!movieState.cast[i].image){
+                alert("upload image for all cast");
+                return;
+            }
+            if(movieState.cast[i].name == ""){
+                alert("cast name can't be empty");
+                return;
+            }
+            formData.append('cast', movieState.cast[i].image);
             formData.append('castName', movieState.cast[i].name);
         }
+        if(movieState.name=="") return alert("movie name can't be empty");
         formData.append('name', movieState.name);
+        if(movieState.plot=="") return alert("movie plot can't be empty");        
         formData.append('plot', movieState.plot);
-        formData.append('rating', movieState.rating);
+        if(movieState.rating<=10 && movieState.rating>=0 &&  typeof(+movieState.rating)=='number'){
+            formData.append('rating', movieState.rating);
+        }
+        else{
+            return alert('rating is not in valid format');
+        }
+        if(movieState.trailer=="") return alert("movie trailer can't be empty");
         formData.append('trailer', movieState.trailer);
-        // console.log(formData);
+
 
         let res = await axios.post("http://localhost:3000/upload", formData)
         if (res.status == 200) {

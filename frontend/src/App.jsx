@@ -38,7 +38,6 @@ function App() {
 export default App
 
 // #Todo
-// 2. validate uploads before saving them in backend and give user alert to fill form completely
 // 3. Add a featur to remove from watchList.
 // 4. write CSS for signin signout and Addmovies form.
 // 5. break backend (server.js) into multiple files.
