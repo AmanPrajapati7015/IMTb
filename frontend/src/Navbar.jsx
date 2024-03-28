@@ -48,6 +48,16 @@ function Navbar({setMovies, user, setUser}){
     function signOut(){
         localStorage.removeItem("token");
         setUser("");
+        navigate("/");
+    }
+
+    function gotoWatchList(){
+        if(localStorage.getItem('token')){
+            navigate("/watchlist");
+        }
+        else{
+            alert("sign in to see your watchlist");
+        }
     }
 
     return(<>
@@ -61,7 +71,7 @@ function Navbar({setMovies, user, setUser}){
             </div>
             <div className="watchlist">
                 <img src="./icons/bookmark.svg" alt=""  width="25px" height="25px"/>
-                <h2 onClick={()=>navigate('/watchlist')}>Watch list</h2>
+                <h2 onClick={gotoWatchList}>Watch list</h2>
             </div>
             {(!user)?<>
                 <h2 onClick={()=>navigate("/signin")} className="sign-in">Sign in</h2>

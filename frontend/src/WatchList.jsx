@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function WatchList() {
 
     const [isLoading, setIsLoading] = useState(true);
     const [movies, setMovies] = useState([]);
+
+    const nevigate = useNavigate();
 
     useEffect(() => {
         if (localStorage.getItem("token")) {
@@ -20,6 +23,7 @@ function WatchList() {
                 })
         } else {
             alert("Sign in to see your WatchList");
+            nevigate('/');
         }
     }, [])
 
@@ -29,7 +33,7 @@ function WatchList() {
                 <h1 style={{ textAlign: 'center', marginTop: '30px' }} >WatchList</h1>
                 <div className="container" >
                     <div className="cards">
-                        {((movies.length) == 0) ? "No Watchlist" :
+                        {((movies.length) == 0) ? "Empty Watchlist" :
                             <>
                                 {movies.map((movieState) => {
                                     return <Card id={movieState._id} imageSrc={true} state={movieState} />

@@ -27,7 +27,6 @@ function App() {
           <Route path='/signup' element={<Signup setUser={setUser} />} />
           <Route path='/signin' element={<Signin setUser={setUser} />} />
           <Route path='/watchlist' element={<WatchList />} />
-
         </Routes>
       </BrowserRouter>
     </>
@@ -39,7 +38,9 @@ function App() {
 export default App
 
 // #Todo
-// 1. make sign and sign up on backend
 // 1. make search in backend instead of frontend
 // 2. validate uploads before saving them in backend and give user alert to fill form completely
-// 4. maintain watchlist
+// 3. Add a featur to remove from watchList.
+// 4. write CSS for signin signout and Addmovies form.
+// 5. break backend (server.js) into multiple files.
+
