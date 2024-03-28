@@ -91,6 +91,13 @@ app.get('/', async (req, res) => {
     res.json(movies);
 })
 
+app.get('/search', async(req, res)=>{
+    let query = req.headers.query;
+    const movies = await MovieModel.find({ "name": { $regex: new RegExp(query, "i") } });
+    res.json(movies);
+})
+
+
 app.get('/movie/:id', async (req, res) => {
     try {
         const movie = await MovieModel.findOne({ _id: req.params.id });

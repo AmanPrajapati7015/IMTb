@@ -36,12 +36,9 @@ function Navbar({setMovies, user, setUser}){
         }
     }
 
-    function search(query){ //have to remove from here and use on backend
-        axios.get('http://localhost:3000/').then((res)=>{
-            let filtered = res.data.filter((movie)=>{
-                return movie.name.toLowerCase().includes(query);
-            })
-            setMovies(filtered);
+    function search(query){ 
+        axios.get('http://localhost:3000/search', {headers:{query}}).then((res)=>{
+            setMovies(res.data);
         })
     }        
 
