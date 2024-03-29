@@ -76,6 +76,25 @@ app.put("/user/add-to-watchlist",userAuthentication, async(req, res)=>{
     })
 })
 
+
+app.put("/user/remove-watchlist",userAuthentication, async(req, res)=>{
+    const user = req.user;
+    if(! user.watchList.includes(req.body.id)){
+        return res.status(403).send("This movie does not exist in watchlist");
+    }
+    user.watchList = user.watchList.filter(m_id => m_id != req.body.id);
+
+    user.save()
+    .then(()=>{
+        res.send("saved");
+    })
+    .catch((err)=>{
+        res.status(404).send("can't add this movie to watchlist");
+    })
+})
+
+
+
 app.get("/user/watchlist", userAuthentication, async(req, res)=>{
     const userPopulated = await req.user.populate("watchList");
     res.send(userPopulated.watchList);

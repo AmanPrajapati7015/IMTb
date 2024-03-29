@@ -36,7 +36,7 @@ function WatchList() {
                         {((movies.length) == 0) ? "Empty Watchlist" :
                             <>
                                 {movies.map((movieState) => {
-                                    return <Card id={movieState._id} imageSrc={true} state={movieState} />
+                                    return <Card id={movieState._id} imageSrc={true} state={movieState} fromWatchList={true}/>
                                 })}
                             </>
                         }
