@@ -14,28 +14,27 @@ const port = 3000
 
 const imagesURL = "http://localhost:3000/uploads/"
 
-app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/user", userRoutes);
+app.use(express.static('dist'));
 
 
+app.use("/api/user", userRoutes);
 
-
-app.get('/', async (req, res) => {
+app.get('/api', async (req, res) => {
     const movies = await MovieModel.find({});
     res.json(movies);
 })
 
-app.get('/search', async(req, res)=>{
+app.get('/api/search', async(req, res)=>{
     let query = req.headers.query;
     const movies = await MovieModel.find({ "name": { $regex: new RegExp(query, "i") } });
     res.json(movies);
 })
 
 
-app.get('/movie/:id', async (req, res) => {
+app.get('/api/movie/:id', async (req, res) => {
     try {
         const movie = await MovieModel.findOne({ _id: req.params.id });
         res.json(movie);
@@ -46,7 +45,7 @@ app.get('/movie/:id', async (req, res) => {
 })
 
 
-app.post('/upload',  upload.fields([{ name: 'thumb' }, { name: 'ss' }, { name: 'cast' }]), async (req, res) => {
+app.post('/api/upload',  upload.fields([{ name: 'thumb' }, { name: 'ss' }, { name: 'cast' }]), async (req, res) => {
     let stateObj = { ...req.body };
     stateObj.thumb = imagesURL + req.files['thumb'][0].filename;
     let ss = req.files['ss'].map(info => imagesURL + info.filename);

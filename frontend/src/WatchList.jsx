@@ -12,7 +12,7 @@ function WatchList() {
 
     useEffect(() => {
         if (localStorage.getItem("token")) {
-            axios.get('http://localhost:3000/user/watchlist', { headers: { Authorization: "Bearer " + localStorage.getItem("token") } })
+            axios.get('/api/user/watchlist', { headers: { Authorization: "Bearer " + localStorage.getItem("token") } })
                 .then((res) => {
                     setIsLoading(false);
                     setMovies(res.data);

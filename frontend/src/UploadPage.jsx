@@ -114,7 +114,7 @@ function UploadPage() {
         formData.append('trailer', movieState.trailer);
 
 
-        let res = await axios.post("http://localhost:3000/upload", formData)
+        let res = await axios.post("/api/upload", formData)
         if (res.status == 200) {
             navigate('/preview', { state: res.data });
         }

@@ -7,7 +7,7 @@ function HomePage({movies, setMovies}){
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(()=>{
-        axios.get('http://localhost:3000/').then((res)=>{
+        axios.get('/api').then((res)=>{
             if(res.status == 200){
                 setIsLoading(false);
                 setMovies(res.data)

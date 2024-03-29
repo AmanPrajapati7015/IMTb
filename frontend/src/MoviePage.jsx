@@ -10,7 +10,7 @@ function MoviePage() {
 
     const { id } = useParams();
     useEffect(() => {
-        axios.get('http://localhost:3000/movie/' + id)
+        axios.get('/api/movie/' + id)
             .then((res) => {
                 setIsLoading(false);
                 setIsValidID(true);
