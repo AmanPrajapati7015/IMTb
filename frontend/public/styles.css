@@ -71,6 +71,93 @@ nav input:focus{
 
 .wrap{
     width: 500px;
-    background-color: red;
     margin: 100px auto;
+}
+
+
+
+#form{
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    font-size: 1.2rem;
+}
+
+#form > div.input-group{
+    display: flex;
+    align-items: center;
+}
+#form  div.input-group label{
+    display: inline-block;
+    min-width: 150px;
+}
+#form  div.input-group input, div.input-group textarea, div.cast-person-input input{
+    font-size: 1.2rem; 
+    background-color: black;
+    padding: 5px;
+    width: 358px;
+    color: white;
+    outline: none;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+
+#form  div.input-group input:focus, div.input-group textarea:focus{
+    border: 2px solid #F5C518;
+}
+label::after{
+    content: ":";
+}
+
+div.cast-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+div.cast-container h2{
+    align-self: flex-start;
+}
+div.cast-container button, .container  .btns  button{
+    background-color: #F57D1F;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 5px 10px ;
+}
+
+
+div.cast-person-input{
+    border: 1px solid white;
+    padding: 10px;
+    margin :10px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    font-size: 1rem;
+}
+
+
+div.cast-person-input input{
+    font-size: 1rem;
+    margin: 0 10px;
+    width: 250px;
+}
+
+div.cast-person-input input:focus{
+    border: 1px solid #F5C518;
+}
+
+.container  .btns{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+.container  .btns  button{
+    width: 200px;
+    background-color: #EBF400;
+    color: black;
 }

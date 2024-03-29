@@ -33,17 +33,19 @@ function Signin({setUser}) {
     
     return (<>
         <div className="container">
-            <div className="wrap" >
-                <div className="field">
-                    <label htmlFor="username">User Name : </label>
-                    <input onChange={(e)=>setUserName(e.target.value)} id="username" placeholder="username" type="text" />
-                </div>
-                <div className="field">
-                    <label htmlFor="password">Password : </label>
-                    <input onChange={(e)=>setPassword(e.target.value)} id="password" placeholder="password" type="password" />
-                </div>
-                <div className="field">
-                    <button onClick={signin} >Sign In</button>
+            <div className="wrap">
+                <div id="form">
+                    <div className="input-group">
+                        <label htmlFor="username">User Name </label>
+                        <input onChange={(e)=>setUserName(e.target.value)} id="username" placeholder="username" type="text" />
+                    </div>
+                    <div className="input-group">
+                        <label htmlFor="password">Passwords      </label>
+                        <input onChange={(e)=>setPassword(e.target.value)} id="password" placeholder="password" type="password" />
+                    </div>
+                    <div className="btns">
+                        <button onClick={signin} >Sign In</button>
+                    </div>
                 </div>
             </div>
         </div>

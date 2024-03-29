@@ -5,7 +5,7 @@ function DisplayMovie({imageSrc, state }) {
 
     return (
         <>
-            <div className='result' >
+            <div className='result' id="result">
                 <div class="container" >
                     {(!imageSrc) ? <Card state={state} imageSrc={imageSrc}/> : ""}
                     <div class="info">

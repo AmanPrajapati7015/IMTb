@@ -54,6 +54,12 @@ function UploadPage() {
         let temp = dummy;
         temp++;
         setDummy(temp);
+        setTimeout(() => {
+            document.getElementById('result').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }, 500);
+        
     }
 
     async function uploadMovie(e) {
@@ -62,13 +68,13 @@ function UploadPage() {
         console.log(movieState);
 
         const formData = new FormData();
-        if(!movieState.thumb){
+        if (!movieState.thumb) {
             alert('please upload a valid thumbnail');
             return;
         }
         formData.append('thumb', movieState.thumb);
 
-        if(movieState.ss.length==0){
+        if (movieState.ss.length == 0) {
             alert('please uplad a atleast one screen shot');
             return;
         }
@@ -77,40 +83,40 @@ function UploadPage() {
             formData.append('ss', movieState.ss[i]);
         }
 
-        if(movieState.cast.length==0){
+        if (movieState.cast.length == 0) {
             alert('please uplad a atleast one cast');
             return;
         }
 
         for (let i = 0; i < movieState.cast.length; i++) {
-            if(!movieState.cast[i].image){
+            if (!movieState.cast[i].image) {
                 alert("upload image for all cast");
                 return;
             }
-            if(movieState.cast[i].name == ""){
+            if (movieState.cast[i].name == "") {
                 alert("cast name can't be empty");
                 return;
             }
             formData.append('cast', movieState.cast[i].image);
             formData.append('castName', movieState.cast[i].name);
         }
-        if(movieState.name=="") return alert("movie name can't be empty");
+        if (movieState.name == "") return alert("movie name can't be empty");
         formData.append('name', movieState.name);
-        if(movieState.plot=="") return alert("movie plot can't be empty");        
+        if (movieState.plot == "") return alert("movie plot can't be empty");
         formData.append('plot', movieState.plot);
-        if(movieState.rating<=10 && movieState.rating>=0 &&  typeof(+movieState.rating)=='number'){
+        if (movieState.rating <= 10 && movieState.rating >= 0 && typeof (+movieState.rating) == 'number') {
             formData.append('rating', movieState.rating);
         }
-        else{
+        else {
             return alert('rating is not in valid format');
         }
-        if(movieState.trailer=="") return alert("movie trailer can't be empty");
+        if (movieState.trailer == "") return alert("movie trailer can't be empty");
         formData.append('trailer', movieState.trailer);
 
 
         let res = await axios.post("http://localhost:3000/upload", formData)
         if (res.status == 200) {
-            navigate('/preview',{ state:res.data });
+            navigate('/preview', { state: res.data });
         }
 
         console.log(res.data);
@@ -122,8 +128,10 @@ function UploadPage() {
             <h1>Add Movie</h1>
             <FormInput setName={setName} setRating={setRating} setPlot={setPlot} setThumb={setThumb} setSS={setSS} setTrailer={setTrailer} />
             <CastInput movieState={movieState} setMovieState={setMovieState} ></CastInput>
-            <button onClick={makePreview} >Check Preview</button>
-            <button onClick={uploadMovie}>Upload</button>
+            <div className="btns">
+                <button onClick={makePreview} >Check Preview</button>
+                <button onClick={uploadMovie}>Upload</button>
+            </div>
         </div>
 
         {(dummy) ?

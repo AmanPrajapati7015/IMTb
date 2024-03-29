@@ -23,8 +23,12 @@ function PreviewPage({ state }) {
 
     return (<>
         <DisplayMovie imageSrc={imageSrc} state={state} />
-        <button onClick={gotoHome}>Home</button>
-        <button onClick={gotoUpoad}>Upload</button>
+        <div className="container">
+            <div className="btns">
+                <button onClick={gotoUpoad}>Upload</button>
+                <button onClick={gotoHome}>Home</button>
+            </div>
+        </div>
     </>)
 }
 
