@@ -14,7 +14,7 @@ function Signup({ setUser }) {
             return;
         }
 
-        axios.post('http://localhost:3000/users/signup', { username, password })
+        axios.post('http://localhost:3000/user/signup', { username, password })
             .then((res) => {
                 localStorage.setItem('token', res.data.token);
                 setUser(username);

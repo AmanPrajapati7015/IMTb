@@ -12,7 +12,7 @@ function Navbar({setMovies, user, setUser}){
 
     useEffect(()=>{
         if(localStorage.getItem("token")){
-            axios.get('http://localhost:3000/me', {headers:{Authorization:"Bearer "+localStorage.getItem("token")}})
+            axios.get('http://localhost:3000/user/me', {headers:{Authorization:"Bearer "+localStorage.getItem("token")}})
             .then((res)=>{
                 setUser(res.data);
             })

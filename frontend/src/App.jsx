@@ -37,7 +37,4 @@ function App() {
 
 export default App
 
-// #Todo
-// 4. write CSS for signin signout and Addmovies form and preview ke neeche 2 buttons.
-// 5. break backend (server.js) into multiple files.
 
