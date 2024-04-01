@@ -66,6 +66,9 @@ function Navbar({setMovies, user, setUser}){
                 <input type="text" onChange={updateQuery} onKeyDown={searchEnter}  placeholder="Search IMTb"/>
                 <img src="./icons/search.svg" onClick={()=>search(query)} alt=""  width="25px" height="25px"/>
             </div>
+            <div className="upload">
+                <img onClick={()=>navigate("/upload")} src="./icons/upload.svg" alt=""  width="25px" height="25px"/>
+            </div>
             <div className="watchlist">
                 <img src="./icons/bookmark.svg" alt=""  width="25px" height="25px"/>
                 <h2 onClick={gotoWatchList}>Watch list</h2>
