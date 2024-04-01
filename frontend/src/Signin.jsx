@@ -14,7 +14,7 @@ function Signin({setUser}) {
             return;
         }
 
-        axios.post('http://localhost:3000/user/signin',"", {headers:{username,password}})
+        axios.post('/api/user/signin',"", {headers:{username,password}})
         .then((res)=>{
             localStorage.setItem('token',res.data.token);
             console.log(res.data.token);

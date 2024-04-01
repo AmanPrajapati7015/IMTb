@@ -12,7 +12,7 @@ function submitForm(e) {
     for(let i =0; i < files.files.length; i++) {
             formData.append("files", files.files[i]);
     }
-    fetch("http://localhost:3000/upload", {
+    fetch("/api/upload", {
         method: 'POST',
         body: formData
     })

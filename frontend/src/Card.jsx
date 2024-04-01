@@ -15,7 +15,7 @@ function Card({ id, state, imageSrc, fromWatchList }) {
 
     function removeWatchList(){
         if (localStorage.getItem("token")) {
-            axios.put('http://localhost:3000/user/remove-watchlist', { id }, { headers: { authorization: "Bearer " + localStorage.getItem("token") } })
+            axios.put('/api/user/remove-watchlist', { id }, { headers: { authorization: "Bearer " + localStorage.getItem("token") } })
                 .then((res) => {
                     setIsRemoved(true);
                 })
@@ -37,7 +37,7 @@ function Card({ id, state, imageSrc, fromWatchList }) {
 
     function addToWatchList() {
         if (localStorage.getItem("token")) {
-            axios.put('http://localhost:3000/user/add-to-watchlist', { id }, { headers: { Authorization: "Bearer " + localStorage.getItem("token") } })
+            axios.put('/api/user/add-to-watchlist', { id }, { headers: { Authorization: "Bearer " + localStorage.getItem("token") } })
                 .then((res) => {
                     alert(`${state.name} added to watchList!`);
                 })

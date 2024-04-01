@@ -37,4 +37,7 @@ function App() {
 
 export default App
 
+// make "upload" button in navbar 
+// add footer...
+// change pointer type on hovering over navbar a tags
 

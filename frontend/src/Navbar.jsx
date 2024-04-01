@@ -12,7 +12,7 @@ function Navbar({setMovies, user, setUser}){
 
     useEffect(()=>{
         if(localStorage.getItem("token")){
-            axios.get('http://localhost:3000/user/me', {headers:{Authorization:"Bearer "+localStorage.getItem("token")}})
+            axios.get('/api/user/me', {headers:{Authorization:"Bearer "+localStorage.getItem("token")}})
             .then((res)=>{
                 setUser(res.data);
             })
@@ -37,7 +37,7 @@ function Navbar({setMovies, user, setUser}){
     }
 
     function search(query){ 
-        axios.get('http://localhost:3000/search', {headers:{query}}).then((res)=>{
+        axios.get('/api/search', {headers:{query}}).then((res)=>{
             setMovies(res.data);
         })
     }        
