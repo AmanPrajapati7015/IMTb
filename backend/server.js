@@ -16,7 +16,7 @@ const userRoutes = require("./userRoute");
 
 const port = process.env.PORT || 5000
 
-const imagesURL = "http://localhost:6969/uploads/"
+const imagesURL = "https://imtb.onrender.com/uploads/"
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
