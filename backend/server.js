@@ -1,18 +1,22 @@
 const express = require('express')
 const mongoose = require('mongoose');
 const cors = require("cors");
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const { MovieModel } = require('./mongoDB')
 const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
 
-const mongoURI = 'mongodb+srv://aman7015:aman7015@cluster0.wva3zeh.mongodb.net/?retryWrites=true&w=majority'; 
+const mongoURI = process.env.mongoURI; 
 
 const app = express();
 const userRoutes = require("./userRoute");
-const port = 3000
 
-const imagesURL = "http://localhost:3000/uploads/"
+const port = process.env.PORT || 5000
+
+const imagesURL = "http://localhost:6969/uploads/"
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -69,6 +73,8 @@ app.post('/api/upload',  upload.fields([{ name: 'thumb' }, { name: 'ss' }, { nam
 app.get('/uploads/:name', (req, res) => {
     res.sendFile(__dirname + '/uploads/' + req.params.name);
 })
+
+
 
 mongoose.connect(mongoURI, { dbName: "IMTb" })
     .then(() => {
