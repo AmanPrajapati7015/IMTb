@@ -1,0 +1,163 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+a:visited, a{
+    text-decoration: none;
+}
+body{
+    background-color: black;
+}
+
+/* Navbar */
+div.navbar{
+    background-color: #181818;
+    color: white;
+}
+
+nav{
+    max-width: 1300px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 10px 0;
+    margin: 0 auto;
+}
+nav div.search{
+    flex-grow: 1;
+}
+nav div.search input{
+    width: 90%;
+}
+
+.home_btn, div.search, div.watchlist{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    gap: 10px;
+}
+
+.home_btn:hover, div.watchlist:hover, .search>img:hover, h2.sign-in:hover{
+    scale: 1.2;
+}
+
+nav h1{
+    background-color: #F5C518;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+nav h2{
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+nav input{
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    border: 3px solid #181818;
+    border-radius: 7px;
+    outline: none;
+}
+
+nav input:focus{
+    border: 3px solid #F5C518;
+}
+
+
+
+.wrap{
+    width: 500px;
+    margin: 100px auto;
+}
+
+
+
+#form{
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    font-size: 1.2rem;
+}
+
+#form > div.input-group{
+    display: flex;
+    align-items: center;
+}
+#form  div.input-group label{
+    display: inline-block;
+    min-width: 150px;
+}
+#form  div.input-group input, div.input-group textarea, div.cast-person-input input{
+    font-size: 1.2rem; 
+    background-color: black;
+    padding: 5px;
+    width: 358px;
+    color: white;
+    outline: none;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+
+#form  div.input-group input:focus, div.input-group textarea:focus{
+    border: 2px solid #F5C518;
+}
+label::after{
+    content: ":";
+}
+
+div.cast-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+div.cast-container h2{
+    align-self: flex-start;
+}
+div.cast-container button, .container  .btns  button{
+    background-color: #F57D1F;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 5px 10px ;
+}
+
+
+div.cast-person-input{
+    border: 1px solid white;
+    padding: 10px;
+    margin :10px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    font-size: 1rem;
+}
+
+
+div.cast-person-input input{
+    font-size: 1rem;
+    margin: 0 10px;
+    width: 250px;
+}
+
+div.cast-person-input input:focus{
+    border: 1px solid #F5C518;
+}
+
+.container  .btns{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+.container  .btns  button{
+    width: 200px;
+    background-color: #EBF400;
+    color: black;
+}

@@ -14,12 +14,10 @@ const port = 3000
 
 const imagesURL = "http://localhost:3000/uploads/"
 
-app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/user", userRoutes);
-
 
 
 

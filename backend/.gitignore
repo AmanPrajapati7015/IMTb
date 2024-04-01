@@ -10,7 +10,6 @@ lerna-debug.log*
 uploads
 
 node_modules
-dist
 dist-ssr
 *.local
 
