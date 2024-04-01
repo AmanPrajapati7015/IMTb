@@ -16,7 +16,6 @@ function WatchList() {
                 .then((res) => {
                     setIsLoading(false);
                     setMovies(res.data);
-                    console.log(res.data);
                 })
                 .catch(() => {
                     console.log("invalid auth token");

@@ -31,15 +31,15 @@ function Navbar({setMovies, user, setUser}){
     }
 
     function searchEnter(e){
+        navigate("/");
         if(e.key=='Enter'){
             search(query);
         }
     }
 
-    function search(query){ 
-        axios.get('/api/search', {headers:{query}}).then((res)=>{
-            setMovies(res.data);
-        })
+    async function search(query){ 
+        let res = await axios.get('/api/search', {headers:{query}})
+        setMovies(res.data);
     }        
 
     function signOut(){

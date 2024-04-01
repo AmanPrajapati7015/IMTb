@@ -56,7 +56,6 @@ function CastGrp({ imageSrc, cast }) {
     return (
         <>
             <div class="cast-grp">
-                {console.log(cast)}
                 {cast.map(person => {
                     return <CastPerson imageSrc={imageSrc} person={person} />
                 })}
