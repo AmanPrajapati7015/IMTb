@@ -1,18 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Inter&family=Roboto+Condensed:wght@500&display=swap" rel="stylesheet">
+</head>
 <body>
-    <div class="container">
-        <h1>File Upload</h1>
-        <form id='form'>
-            <div class="input-group">
-                <label for='name'>Your name</label>
-                <input name='name' id='name' placeholder="Enter your name" />
+    <div class="navbar">
+        <nav>
+            <H1>IMTb</H1>
+            <div class="home_btn">
+                <img src="./icons/hamburger.svg" alt="" width="25px" height="25px">
+                <h2>Menu</h2>
             </div>
-            <div cla
-            ss="input-group">
-                <label for='files'>Select files</label>
-                <input id='files' type="file" multiple>
+            <div class="search">
+                <input type="text" placeholder="Search IMTb">
+                <img src="./icons/search.svg" alt=""  width="25px" height="25px">
             </div>
-            <button class="submit-btn" type='submit'>Upload</button>
-        </form>
+            <div class="watchlist">
+                <img src="./icons/bookmark.svg" alt=""  width="25px" height="25px">
+                <h2>Watch list</h2>
+            </div>
+            <h2 class="sign-in">Sign in</h2>
+        </nav>
     </div>
-    <script src='./script.js'></script>
+    <div class="container">
+        <div class="flashing-card">
+            <img src="./image-flash/Got.jpg" alt="" width="700px">
+        </div>
+
+        <div class="top-10">
+            <h2>Top 10 on IMTb this week</h2>
+            <div class="card-row">
+                
+                <div class="card">
+                    <a href="./moviesPage/GOT/index.html">  
+                        <div class="img">
+                            <img src="./image-card/got.jpg" alt="">
+                        </div>
+                    </a>
+                    <div class="bookmark">
+                        <img src="./icons/bookmark_add.svg" alt="">
+                    </div>
+                    <div class="about">
+                        <div class="stars">
+                            <img src="./icons/star-solid.svg" alt="" width="20px" height="20px"> 
+                            <p>9.2</p>
+                            <img src="./icons/star-regular.svg" alt="" width="20px" height="20px"> 
+                        </div>
+                        <h3>Game of Thrones</h3>
+                        <button>+ Watchlist</button>
+                        <a href="https://www.youtube.com/watch?v=bjqEWgDVPe0">
+                            <div class="trailer">
+                                <img src="./icons/play-solid.svg" alt=""  width="15px" height="15px"> 
+                                <p>Trailer</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="./moviesPage/moneyHeist/index.html">  
+                        <div class="img">
+                            <img src="./image-card/moneyheist.jpg" alt="">
+                        </div>
+                    </a>
+                    <div class="bookmark">
+                        <img src="./icons/bookmark_add.svg" alt="">
+                    </div>
+                    <div class="about">
+                        <div class="stars">
+                            <img src="./icons/star-solid.svg" alt="" width="20px" height="20px">
+                            <p>8.2</p>
+                            <img src="./icons/star-regular.svg" alt="" width="20px" height="20px"> 
+                        </div>
+                        <h3>Money Heist</h3>
+                        <button>+ Watchlist</button>
+                        <a href="https://www.youtube.com/watch?v=_InqQJRqGW4">
+                            <div class="trailer">
+                                <img src="./icons/play-solid.svg" alt=""  width="15px" height="15px"> 
+                                <p>Trailer</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="./moviesPage/vikings/index.html">  
+                        <div class="img">
+                            <img src="./image-card/vikings.jpg" alt="">
+                        </div>
+                    </a>
+                    <div class="bookmark">
+                        <img src="./icons/bookmark_add.svg" alt="">
+                    </div>
+                    <div class="about">
+                        <div class="stars">
+                            <img src="./icons/star-solid.svg" alt="" width="20px" height="20px"> 
+                            <p>8.5</p>
+                            <img src="./icons/star-regular.svg" alt="" width="20px" height="20px"> 
+                        </div>
+                        <h3>Vikings</h3> 
+                        <button>+ Watchlist</button>
+                        <a href="https://www.youtube.com/watch?v=9GgxinPwAGc&t=71s">
+                            <div class="trailer">
+                                <img src="./icons/play-solid.svg" alt=""  width="15px" height="15px"> 
+                                <p>Trailer</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="./moviesPage/dark/index.html">  
+                        <div class="img">
+                            <img src="./image-card/dark.jpg" alt="">
+                        </div>
+                    </a>
+                    <div class="bookmark">
+                        <img src="./icons/bookmark_add.svg" alt="">
+                    </div>
+                    <div class="about">
+                        <div class="stars">
+                            <img src="./icons/star-solid.svg" alt="" width="20px" height="20px"> 
+                            <p>8.7</p>
+                            <img src="./icons/star-regular.svg" alt="" width="20px" height="20px"> 
+                        </div>
+                        <h3>Dark</h3> <!--change tittle-->
+                        <button>+ Watchlist</button>
+                        <!-- update link to trailer -->
+                        <a href="https://www.youtube.com/watch?v=bjqEWgDVPe0">
+                            <div class="trailer">
+                                <img src="./icons/play-solid.svg" alt=""  width="15px" height="15px"> 
+                                <p>Trailer</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="./moviesPage/The last kingdom/index.html">  
+                        <div class="img">
+                            <img src="./image-card/thelastkingdome.jpg" alt="">
+                        </div>
+                    </a>
+                    <div class="bookmark">
+                        <img src="./icons/bookmark_add.svg" alt="">
+                    </div>
+                    <div class="about">
+                        <div class="stars">
+                            <img src="./icons/star-solid.svg" alt="" width="20px" height="20px"> 
+                            <p>8.5</p>
+                            <img src="./icons/star-regular.svg" alt="" width="20px" height="20px"> 
+                        </div>
+                        <h3>The Last Kingdom</h3>
+                        <button>+ Watchlist</button>
+                        <a href="https://www.youtube.com/watch?v=eqCYw_o5lng">
+                            <div class="trailer">
+                                <img src="./icons/play-solid.svg" alt=""  width="15px" height="15px"> 
+                                <p>Trailer</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-row">
+                <div class="card">
+                    <a href="./moviesPage/peakyBlinders/index.html">  
+                        <div class="img">
+                            <img src="./image-card/peakblinders.webp" alt="">
+                        </div>
+                    </a>
+                    <div class="bookmark">
+                        <img src="./icons/bookmark_add.svg" alt="">
+                    </div>
+                    <div class="about">
+                        <div class="stars">
+                            <img src="./icons/star-solid.svg" alt="" width="20px" height="20px"> 
+                            <p>8.8</p>
+                            <img src="./icons/star-regular.svg" alt="" width="20px" height="20px"> 
+                        </div>
+                        <h3>Peaky Blinders</h3> 
+                        <button>+ Watchlist</button>
+                        <a href="https://www.youtube.com/watch?v=Ruyl8_PT_y8">
+                            <div class="trailer">
+                                <img src="./icons/play-solid.svg" alt=""  width="15px" height="15px"> 
+                                <p>Trailer</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="./moviesPage/lucifer/index.html">  
+                        <div class="img">
+                            <img src="./image-card/lucifer.jpg" alt="">
+                        </div>
+                    </a>
+                    <div class="bookmark">
+                        <img src="./icons/bookmark_add.svg" alt="">
+                    </div>
+                    <div class="about">
+                        <div class="stars">
+                            <img src="./icons/star-solid.svg" alt="" width="20px" height="20px"> 
+                            <p>8.1</p>
+                            <img src="./icons/star-regular.svg" alt="" width="20px" height="20px"> 
+                        </div>
+                        <h3>Lucifer</h3>
+                        <button>+ Watchlist</button>
+                        <a href="https://www.youtube.com/watch?v=X4bF_quwNtw">
+                            <div class="trailer">
+                                <img src="./icons/play-solid.svg" alt=""  width="15px" height="15px"> 
+                                <p>Trailer</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="./moviesPage/wednesday/index.html">  
+                        <div class="img">
+                            <img src="./image-card/wednesday.jpg" alt="">
+                        </div>
+                    </a>
+                    <div class="bookmark">
+                        <img src="./icons/bookmark_add.svg" alt="">
+                    </div>
+                    <div class="about">
+                        <div class="stars">
+                            <img src="./icons/star-solid.svg" alt="" width="20px" height="20px"> 
+                            <p>8.1</p>
+                            <img src="./icons/star-regular.svg" alt="" width="20px" height="20px"> 
+                        </div>
+                        <h3>Wednesday</h3> 
+                        <button>+ Watchlist</button>
+                        <a href="https://www.youtube.com/watch?v=Di310WS8zLk">
+                            <div class="trailer">
+                                <img src="./icons/play-solid.svg" alt=""  width="15px" height="15px"> 
+                                <p>Trailer</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="./moviesPage/harryPotter/index.html">  
+                        <div class="img">
+                            <img src="./image-card/harrypotter.webp" alt="">
+                        </div>
+                    </a>
+                    <div class="bookmark">
+                        <img src="./icons/bookmark_add.svg" alt="">
+                    </div>
+                    <div class="about">
+                        <div class="stars">
+                            <img src="./icons/star-solid.svg" alt="" width="20px" height="20px"> 
+                            <p>7.6</p>
+                            <img src="./icons/star-regular.svg" alt="" width="20px" height="20px"> 
+                        </div>
+                        <h3>Harry Potter</h3> 
+                        <button>+ Watchlist</button>
+                        <a href="https://www.youtube.com/watch?v=17ywQS6XO-M">
+                            <div class="trailer">
+                                <img src="./icons/play-solid.svg" alt=""  width="15px" height="15px"> 
+                                <p>Trailer</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="./moviesPage/fatansticBeast/index.html">  
+                        <div class="img">
+                            <img src="./image-card/fantasticBeasts.jpg" alt="">
+                        </div>
+                    </a>
+                    <div class="bookmark">
+                        <img src="./icons/bookmark_add.svg" alt="">
+                    </div>
+                    <div class="about">
+                        <div class="stars">
+                            <img src="./icons/star-solid.svg" alt="" width="20px" height="20px"> 
+                            <p>6.2</p>
+                            <img src="./icons/star-regular.svg" alt="" width="20px" height="20px"> 
+                        </div>
+                        <h3>Fantastic Beasts</h3> 
+                        <button>+ Watchlist</button>
+                        <a href="https://www.youtube.com/watch?v=ViuDsy7yb8M">
+                            <div class="trailer">
+                                <img src="./icons/play-solid.svg" alt=""  width="15px" height="15px"> 
+                                <p>Trailer</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="editor-pic">
+            <h2>Editor's Pick</h2>
+            <div class="card-row">
+                <div class="card">
+                    <a href="./moviesPage/breakingBad/index.html">  
+                        <div class="img">
+                            <img src="./image-card/breakingBad.webp" alt="">
+                        </div>
+                    </a>
+                    <div class="bookmark">
+                        <img src="./icons/bookmark_add.svg" alt="">
+                    </div>
+                    <div class="about">
+                        <div class="stars">
+                            <img src="./icons/star-solid.svg" alt="" width="20px" height="20px"> 
+                            <p>9.5</p>
+                            <img src="./icons/star-regular.svg" alt="" width="20px" height="20px"> 
+                        </div>
+                        <h3>Breaking Bad</h3> 
+                        <button>+ Watchlist</button>
+                        <a href="https://www.youtube.com/watch?v=1JLUn2DFW4w">
+                            <div class="trailer">
+                                <img src="./icons/play-solid.svg" alt=""  width="15px" height="15px"> 
+                                <p>Trailer</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="./moviesPage/interstellar/index.html">
+                        <div class="img">
+                            <img src="./image-card/interstellar.webp" alt="">
+                        </div>
+                    </a>
+                    <div class="bookmark">
+                        <img src="./icons/bookmark_add.svg" alt="">
+                    </div>
+                    <div class="about">
+                        <div class="stars">
+                            <img src="./icons/star-solid.svg" alt="" width="20px" height="20px"> 
+                            <p>8.7</p>
+                            <img src="./icons/star-regular.svg" alt="" width="20px" height="20px">  
+                        </div>
+                        <h3>Interstellar</h3>
+                        <button>+ Watchlist</button>
+                        <a href="https://www.youtube.com/watch?v=zSWdZVtXT7E">
+                            <div class="trailer">
+                                <img src="./icons/play-solid.svg" alt=""  width="15px" height="15px">
+                                <p>Trailer</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="">  
+                        <div class="img">
+                            <img src="./image-card/kissingBooth.jpg" alt="">
+                        </div>
+                    </a>
+                    <div class="bookmark">
+                        <img src="./icons/bookmark_add.svg" alt="">
+                    </div>
+                    <div class="about">
+                        <div class="stars">
+                            <img src="./icons/star-solid.svg" alt="" width="20px" height="20px"> 
+                            <p>5.9</p>
+                            <img src="./icons/star-regular.svg" alt="" width="20px" height="20px"> 
+                        </div>
+                        <h3>The Kissing Booth</h3> 
+                        <button>+ Watchlist</button>
+                        <a href="https://www.youtube.com/watch?v=7bfS6seiLhk">
+                            <div class="trailer">
+                                <img src="./icons/play-solid.svg" alt=""  width="15px" height="15px"> 
+                                <p>Trailer</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="">  
+                        <div class="img">
+                            <img src="./image-card/endgame.jpeg" alt="">
+                        </div>
+                    </a>
+                    <div class="bookmark">
+                        <img src="./icons/bookmark_add.svg" alt="">
+                    </div>
+                    <div class="about">
+                        <div class="stars">
+                            <img src="./icons/star-solid.svg" alt="" width="20px" height="20px"> 
+                            <p>8.4</p>
+                            <img src="./icons/star-regular.svg" alt="" width="20px" height="20px"> 
+                        </div>
+                        <h3>Avengers: Endgame</h3> 
+                        <button>+ Watchlist</button>
+                        <a href="https://www.youtube.com/watch?v=TcMBFSGVi1c">
+                            <div class="trailer">
+                                <img src="./icons/play-solid.svg" alt=""  width="15px" height="15px"> 
+                                <p>Trailer</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="">  
+                        <div class="img">
+                            <img src="./image-card/infinityWar.jpg" alt="">
+                        </div>
+                    </a>
+                    <div class="bookmark">
+                        <img src="./icons/bookmark_add.svg" alt="">
+                    </div>
+                    <div class="about">
+                        <div class="stars">
+                            <img src="./icons/star-solid.svg" alt="" width="20px" height="20px"> 
+                            <p>8.4</p>
+                            <img src="./icons/star-regular.svg" alt="" width="20px" height="20px"> 
+                        </div>
+                        <h3>Avengers: Infinity War</h3> 
+                        <button>+ Watchlist</button>
+                        <a href="https://www.youtube.com/watch?v=6ZfuNTqbHE8">
+                            <div class="trailer">
+                                <img src="./icons/play-solid.svg" alt=""  width="15px" height="15px"> 
+                                <p>Trailer</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-row">
+                <div class="card">
+                    <a href="">  
+                        <div class="img">
+                            <img src="./image-card/no way home.jpg" alt="">
+                        </div>
+                    </a>
+                    <div class="bookmark">
+                        <img src="./icons/bookmark_add.svg" alt="">
+                    </div>
+                    <div class="about">
+                        <div class="stars">
+                            <img src="./icons/star-solid.svg" alt="" width="20px" height="20px"> 
+                            <p>8.2</p>
+                            <img src="./icons/star-regular.svg" alt="" width="20px" height="20px"> 
+                        </div>
+                        <h3>Spider-Man: No Way Home</h3> 
+                        <button>+ Watchlist</button>
+                        <a href="https://www.youtube.com/watch?v=JfVOs4VSpmA">
+                            <div class="trailer">
+                                <img src="./icons/play-solid.svg" alt=""  width="15px" height="15px"> 
+                                <p>Trailer</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="">  
+                        <div class="img">
+                            <img src="./image-card/theAvengers.jpg" alt="">
+                        </div>
+                    </a>
+                    <div class="bookmark">
+                        <img src="./icons/bookmark_add.svg" alt="">
+                    </div>
+                    <div class="about">
+                        <div class="stars">
+                            <img src="./icons/star-solid.svg" alt="" width="20px" height="20px"> 
+                            <p>8.0</p>
+                            <img src="./icons/star-regular.svg" alt="" width="20px" height="20px"> 
+                        </div>
+                        <h3>The Avengers</h3> 
+                        <button>+ Watchlist</button>
+                        <a href="https://www.youtube.com/watch?v=eOrNdBpGMv8">
+                            <div class="trailer">
+                                <img src="./icons/play-solid.svg" alt=""  width="15px" height="15px"> 
+                                <p>Trailer</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="">  
+                        <div class="img">
+                            <img src="./image-card/johnWick.jpg" alt="">
+                        </div>
+                    </a>
+                    <div class="bookmark">
+                        <img src="./icons/bookmark_add.svg" alt="">
+                    </div>
+                    <div class="about">
+                        <div class="stars">
+                            <img src="./icons/star-solid.svg" alt="" width="20px" height="20px"> 
+                            <p>7.7</p>
+                            <img src="./icons/star-regular.svg" alt="" width="20px" height="20px"> 
+                        </div>
+                        <h3>John Wick: Chapter 4</h3> 
+                        <button>+ Watchlist</button>
+                        <a href="https://www.youtube.com/watch?v=qEVUtrk8_B4">
+                            <div class="trailer">
+                                <img src="./icons/play-solid.svg" alt=""  width="15px" height="15px"> 
+                                <p>Trailer</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="">  
+                        <div class="img">
+                            <img src="./image-card/inception.jpg" alt="">
+                        </div>
+                    </a>
+                    <div class="bookmark">
+                        <img src="./icons/bookmark_add.svg" alt="">
+                    </div>
+                    <div class="about">
+                        <div class="stars">
+                            <img src="./icons/star-solid.svg" alt="" width="20px" height="20px"> 
+                            <p>8.8</p>
+                            <img src="./icons/star-regular.svg" alt="" width="20px" height="20px"> 
+                        </div>
+                        <h3>Inception</h3> 
+                        <button>+ Watchlist</button>
+                        <a href="https://www.youtube.com/watch?v=YoHD9XEInc0">
+                            <div class="trailer">
+                                <img src="./icons/play-solid.svg" alt=""  width="15px" height="15px"> 
+                                <p>Trailer</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a href="">  
+                        <div class="img">
+                            <img src="./image-card/matrix.jpg" alt="">
+                        </div>
+                    </a>
+                    <div class="bookmark">
+                        <img src="./icons/bookmark_add.svg" alt="">
+                    </div>
+                    <div class="about">
+                        <div class="stars">
+                            <img src="./icons/star-solid.svg" alt="" width="20px" height="20px"> 
+                            <p>8.7</p>
+                            <img src="./icons/star-regular.svg" alt="" width="20px" height="20px"> 
+                        </div>
+                        <h3>The Matrix</h3> 
+                        <button>+ Watchlist</button>
+                        <a href="https://www.youtube.com/watch?v=9ix7TUGVYIo">
+                            <div class="trailer">
+                                <img src="./icons/play-solid.svg" alt=""  width="15px" height="15px"> 
+                                <p>Trailer</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <button>Sign in for more access</button>
+        <div class="social-handle">
+            <a href="https://www.tiktok.com/notfound" target="_blank"><img src="./icons/tiktok.svg" alt="" height="25px" width="25px"></a>
+            <a href="https://www.instagram.com/imdb" target="_blank"><img src="./icons/instagram.svg" alt="" height="25px" width="25px"></a>
+            <a href="https://twitter.com/imdb" target="_blank"><img src="./icons/twitter.svg" alt="" height="25px" width="25px"></a>
+            <a href="https://www.youtube.com/imdb" target="_blank"><img src="./icons/youtube.svg" alt="" height="25px" width="25px"></a>
+            <a href="https://www.facebook.com/imdb" target="_blank"><img src="./icons/square-facebook.svg" alt="" height="25px" width="25px"></a>
+        </div>
+        <p>© 1990-2023 by IMTb.com, Inc.</p>
+    </footer>
+
 </body>
+</html>
