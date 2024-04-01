@@ -13,6 +13,11 @@ function HomePage({movies, setMovies}){
                 setMovies(res.data)
             }
         })
+        .catch((err)=>{
+            if(err.response){
+                console.log(err.response);
+            }
+        })
     },[]);
 
 

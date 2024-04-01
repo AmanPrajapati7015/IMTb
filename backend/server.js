@@ -17,11 +17,12 @@ const imagesURL = "http://localhost:3000/uploads/"
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use(express.static("dist"))
+
 app.use("/api/user", userRoutes);
 
 
-
-app.get('/api/', async (req, res) => {
+app.get('/api', async (req, res) => {
     const movies = await MovieModel.find({});
     res.json(movies);
 })
